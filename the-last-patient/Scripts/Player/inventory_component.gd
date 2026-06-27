@@ -5,16 +5,16 @@ signal inv_updated(categoria: String)
 
 # O "Excel": Cada chave é uma coluna, cada valor é a lista de itens
 var storage = {
-	"cartas": [],
+	"Keys": [],
 	"coletaveis": []
 }
 
-@export var max_cartas: int = 3
+
 # Coletáveis geralmente não têm limite, então deixamos crescer livremente
 
 func _ready() -> void:
-	storage["cartas"].resize(max_cartas)
-	storage["cartas"].fill(null)
+
+	storage["Keys"].fill(null)
 
 ## Função Única para adicionar qualquer coisa
 ## categoria: "cartas" ou "coletaveis"
@@ -26,13 +26,12 @@ func add_to_storage(categoria: String, item_data: Dictionary) -> bool:
 	var lista = storage[categoria]
 	
 	# Lógica para CARTAS (Com limite de slots)
-	if categoria == "cartas":
+	if categoria == "Keys":
 		var slot_livre = lista.find(null)
-		if slot_livre != -1:
-			lista[slot_livre] = item_data
-			emitir_update(categoria, item_data)
-			return true
-		print("Inventário de cartas cheio!")
+		lista.append(item_data)
+		emitir_update(categoria, item_data)
+		return true
+		print("Inventário de Keys cheio!")
 		return false
 	
 	# Lógica para COLETÁVEIS (Sem limite, apenas adiciona no final)
@@ -52,7 +51,7 @@ func remover_por_id(categoria: String, id_alvo: int) -> bool:
 	var lista = storage[categoria]
 	for i in range(lista.size()):
 		if lista[i] != null and lista[i].get("id") == id_alvo:
-			if categoria == "cartas":
+			if categoria == "Keys":
 				lista[i] = null # Cartas deixam slot vazio
 			else:
 				lista.remove_at(i) # Coletáveis apenas somem da lista
