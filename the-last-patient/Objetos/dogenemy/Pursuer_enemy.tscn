@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://b54418x4q43p6"]
+
+[ext_resource type="Script" uid="uid://cnhdb00j6eeys" path="res://Scripts/enemys_sc/pursuer_enemy_sc.gd" id="1_4okni"]
+[ext_resource type="Texture2D" uid="uid://4sqwl8shk8p" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque0.png" id="2_cah12"]
+[ext_resource type="Texture2D" uid="uid://cgysc24mid3uy" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque1.png" id="3_0v1oy"]
+[ext_resource type="Texture2D" uid="uid://3vqm71dpyt86" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque2.png" id="4_w1t1h"]
+[ext_resource type="Texture2D" uid="uid://53ufub3pny4w" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque3.png" id="5_c755u"]
+[ext_resource type="Texture2D" uid="uid://bj6it1yevjoc6" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque4.png" id="6_3vfcw"]
+[ext_resource type="Texture2D" uid="uid://4vbllfegmoli" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque5.png" id="7_cxktp"]
+[ext_resource type="Texture2D" uid="uid://ctrbapeonm8tt" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque6.png" id="8_xm160"]
+[ext_resource type="Texture2D" uid="uid://dmgg3y6hd4kp0" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque7.png" id="9_6bnt6"]
+[ext_resource type="Texture2D" uid="uid://dex87wlncs1sd" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog0.png" id="10_jt72q"]
+[ext_resource type="Texture2D" uid="uid://dftq53o52tp74" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog1.png" id="11_vthc0"]
+[ext_resource type="Texture2D" uid="uid://cay8fee527lf3" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog2.png" id="12_j05h2"]
+[ext_resource type="Texture2D" uid="uid://cc5hq7fdvihq4" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog3.png" id="13_25pnr"]
+[ext_resource type="Texture2D" uid="uid://c6c0kefg5r8sv" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog4.png" id="14_38euu"]
+[ext_resource type="Texture2D" uid="uid://b20sq0xo8o2me" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog5.png" id="15_1bc73"]
+[ext_resource type="Texture2D" uid="uid://dseikatdgleh7" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog6.png" id="16_hgfph"]
+[ext_resource type="Texture2D" uid="uid://b5yvl0dll83to" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog7.png" id="17_pt2rr"]
+[ext_resource type="Texture2D" uid="uid://dsdlpmrjxphdc" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog8.png" id="18_ccwee"]
+[ext_resource type="Texture2D" uid="uid://bo4itm8sjieip" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog9.png" id="19_m5djo"]
+[ext_resource type="Texture2D" uid="uid://btgm7yvlw83mj" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog10.png" id="20_0esc2"]
+[ext_resource type="Texture2D" uid="uid://bddsl6anv203l" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog0.png" id="21_6b3kb"]
+[ext_resource type="Texture2D" uid="uid://dmrp0rkd1w3ua" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog1.png" id="22_j7hms"]
+[ext_resource type="Texture2D" uid="uid://crv3w483o4kfj" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog2.png" id="23_wtmbh"]
+[ext_resource type="Texture2D" uid="uid://cb3ix3tf6cynv" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog3.png" id="24_bb5yr"]
+[ext_resource type="Texture2D" uid="uid://dsup7tnafwy7k" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog4.png" id="25_neb6o"]
+[ext_resource type="Texture2D" uid="uid://baqrrkahyuqu8" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog5.png" id="26_fp2nd"]
+[ext_resource type="Texture2D" uid="uid://48x3us7kytyg" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog6.png" id="27_k0bbr"]
+[ext_resource type="PackedScene" uid="uid://cuiwlm80b8olq" path="res://Objetos/dogenemy/patrol_component.tscn" id="28_tdfnh"]
+[ext_resource type="PackedScene" uid="uid://dqah2qouex61f" path="res://Objetos/Player/health_component.tscn" id="29_6hqpn"]
+[ext_resource type="Texture2D" uid="uid://gh2v8ucdpyrm" path="res://Assets/lights/light.jpg" id="29_c8cy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2h5j"]
+size = Vector2(25, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqq82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cah12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0v1oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w1t1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c755u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3vfcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cxktp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xm160")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6bnt6")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_jt72q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vthc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j05h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_25pnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_38euu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1bc73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hgfph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pt2rr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ccwee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_m5djo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0esc2")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_6b3kb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_j7hms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wtmbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bb5yr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_neb6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fp2nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_k0bbr")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1pav"]
+size = Vector2(20, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ja1t"]
+size = Vector2(26, 13)
+
+[node name="Pursuer" type="CharacterBody2D" unique_id=1459138570 groups=["enemies"]]
+script = ExtResource("1_4okni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2112139724]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_j2h5j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1510693069]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_gqq82")
+animation = &"run"
+frame_progress = 0.35804364
+
+[node name="DangerDetectorLeft" type="RayCast2D" parent="." unique_id=1178509042]
+unique_name_in_owner = true
+position = Vector2(-24, -7)
+target_position = Vector2(0, 15)
+
+[node name="DangerDetectorRight" type="RayCast2D" parent="." unique_id=877305182]
+unique_name_in_owner = true
+position = Vector2(21, -7)
+target_position = Vector2(0, 15)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=878568083]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=196314900]
+unique_name_in_owner = true
+position = Vector2(23, -4)
+shape = SubResource("RectangleShape2D_s1pav")
+disabled = true
+debug_color = Color(0.94133806, 0.19948572, 0.3632983, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox" unique_id=1176550675]
+position = Vector2(-23, -3)
+shape = SubResource("RectangleShape2D_s1pav")
+disabled = true
+debug_color = Color(0.94133806, 0.19948572, 0.3632983, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitBox" unique_id=744057763]
+position = Vector2(-1, -13.5)
+shape = SubResource("RectangleShape2D_1ja1t")
+disabled = true
+
+[node name="PatrolComponent" parent="." unique_id=2089860142 instance=ExtResource("28_tdfnh")]
+unique_name_in_owner = true
+move_speed = 80.0
+
+[node name="HealthComponent" parent="." unique_id=1767121955 instance=ExtResource("29_6hqpn")]
+unique_name_in_owner = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1274580430]
+color = Color(0.63529414, 0.30980393, 1, 1)
+energy = 1.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 30.0
+texture = ExtResource("29_c8cy4")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

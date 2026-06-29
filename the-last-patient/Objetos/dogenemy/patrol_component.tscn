@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cuiwlm80b8olq"]
+
+[ext_resource type="Script" uid="uid://cjwca3xcmiww7" path="res://Scripts/enemys_sc/patrol_component_sc.gd" id="1_pacgg"]
+
+[node name="PatrolComponent" type="Node" unique_id=2089860142]
+script = ExtResource("1_pacgg")
