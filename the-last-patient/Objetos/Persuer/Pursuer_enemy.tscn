@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dsup7tnafwy7k" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog4.png" id="25_neb6o"]
 [ext_resource type="Texture2D" uid="uid://baqrrkahyuqu8" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog5.png" id="26_fp2nd"]
 [ext_resource type="Texture2D" uid="uid://48x3us7kytyg" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog6.png" id="27_k0bbr"]
-[ext_resource type="PackedScene" uid="uid://cuiwlm80b8olq" path="res://Objetos/dogenemy/patrol_component.tscn" id="28_tdfnh"]
+[ext_resource type="PackedScene" uid="uid://cuiwlm80b8olq" path="res://Objetos/Persuer/patrol_component.tscn" id="28_tdfnh"]
 [ext_resource type="PackedScene" uid="uid://dqah2qouex61f" path="res://Objetos/Player/health_component.tscn" id="29_6hqpn"]
 [ext_resource type="Texture2D" uid="uid://gh2v8ucdpyrm" path="res://Assets/lights/light.jpg" id="29_c8cy4"]
 
@@ -194,5 +194,8 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 30.0
 texture = ExtResource("29_c8cy4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=357587801]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
