@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var health_component = $HealthComponent
 
-@export var speed: float = 300.0
+@export var speed: float = 140.0
 
 #movement
 func _physics_process(_delta: float) -> void:

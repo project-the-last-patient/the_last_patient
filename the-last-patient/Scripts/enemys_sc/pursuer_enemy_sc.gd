@@ -1,3 +1,5 @@
+
+
 extends CharacterBody2D
 
 enum Estado { PATRULHANDO, CACANDO, ATACANDO, STUNADO }
@@ -9,12 +11,12 @@ var estado_atual = Estado.PATRULHANDO
 @onready var patrol_component = $PatrolComponent
 @onready var health_comp: HealthComponent = $HealthComponent
 @onready var collision = $CollisionShape2D
-@onready var nav_agent = $NavigationAgent2D # Essencial para o Top-Down desviar de paredes
+@onready var nav_agent = $NavigationAgent2D
 
 # --- Configurações de Movimento ---
-@export var chase_speed := 130.0
-@export var dash_speed := 300.0
-@export var stun_duration := 2.5
+@export var chase_speed := 55.0
+@export var dash_speed := 100.0
+@export var stun_duration := 1.5
 
 # --- Sistema da Mente & Alvo ---
 var ultima_posicao_player: Vector2
@@ -26,6 +28,7 @@ var is_dead := false
 var _is_ready_for_physics := false
 
 func _ready():
+	print("[Pursuer] Inicializando e adicionando ao grupo 'enemies'.")
 	add_to_group("enemies")
 	
 	if hitbox and not hitbox.body_entered.is_connected(_on_hit_box_body_entered):
@@ -34,18 +37,22 @@ func _ready():
 	_set_hitbox_enabled(false)
 	anim_sprite.play("run")
 	
+	# 🔥 Garante que o mapa do TileSet carregou na memória antes do inimigo agir
 	await get_tree().physics_frame
 	_is_ready_for_physics = true
+	print("[Pursuer] Pronto para processar física e navegação.")
 	
-	# Conecta o sinal do PatrolComponent para ativar a caça
+	# Mude isso no seu _ready():
 	if patrol_component:
-		patrol_component.player_avistado.connect(_on_player_avistado_pela_patrulha)
+		# Só conecta se o sinal já não estiver conectado a essa função
+		if not patrol_component.player_avistado.is_connected(_on_patrol_component_player_avistado):
+			patrol_component.player_avistado.connect(_on_patrol_component_player_avistado)
 
-func _on_player_avistado_pela_patrulha(pos_player: Vector2):
+func _on_patrol_component_player_avistado(player_position: Vector2) -> void:
 	if estado_atual == Estado.PATRULHANDO:
-		print("Monstro avistou o player por conta própria!")
-		ultima_posicao_player = pos_player
-		estado_atual = Estado.CACANDO
+		print("[Pursuer] 🔥 Sinal do componente recebido! Jogador avistado em: ", player_position)
+		ultima_posicao_player = player_position
+		mudar_estado(Estado.CACANDO)
 
 func _physics_process(delta):
 	if not _is_ready_for_physics or is_dead:
@@ -53,7 +60,7 @@ func _physics_process(delta):
 	
 	match estado_atual:
 		Estado.PATRULHANDO:
-			patrol_component.process_patrol(self, delta) # Seu componente de patrulha original
+			patrol_component.process_patrol(self, delta)
 			_update_animation(velocity)
 			
 		Estado.CACANDO:
@@ -63,34 +70,54 @@ func _physics_process(delta):
 			_process_attack_dash(delta)
 			
 		Estado.STUNADO:
-			# Fica parado no lugar
 			velocity = Vector2.ZERO
 			move_and_slide()
+
+# --- GERENCIADOR DE ESTADOS (Auxiliar de Debug) ---
+func mudar_estado(novo_estado: Estado):
+	print("[Pursuer] Estado alterado: ", Estado.keys()[estado_atual], " -> ", Estado.keys()[novo_estado])
+	estado_atual = novo_estado
 
 # ----------------------------------------
 # 🧠 LÓGICA DA MENTE E PERSEGUIÇÃO
 
 func receber_posicao_mente(pos_player: Vector2):
+	print("[Pursuer] 🧠 Posição do jogador recebida via Mente em: ", pos_player)
 	ultima_posicao_player = pos_player
 	recebendo_info_mente = true
-	estado_atual = Estado.CACANDO
 	tempo_na_area_target = 0.0
-	# Chame sua função de spawn fora da tela aqui se necessário
+	mudar_estado(Estado.CACANDO)
 
 func _process_chase(delta):
 	var player = get_tree().get_first_node_in_group("player")
+	var vendo_player = checar_player_na_area_target()
 	
 	if recebendo_info_mente:
-		if checar_player_na_area_target():
+		if vendo_player:
 			tempo_na_area_target += delta
 			if tempo_na_area_target >= 3.0:
-				recebendo_info_mente = false # Corta o sinal da mente após 3s de contato visual
+				print("[Pursuer] 🧠 Contato visual mantido por 3s. Desconectando da Mente.")
+				recebendo_info_mente = false
 		
 		if is_instance_valid(player):
 			ultima_posicao_player = player.global_position
 
-	# Movimentação Top-Down usando NavigationAgent2D
 	nav_agent.target_position = ultima_posicao_player
+	
+	print("[DEBUG CAÇA] Alvo definido em: ", nav_agent.target_position, " | Caminho finalizado? ", nav_agent.is_navigation_finished()) # << ADD
+	
+	if not nav_agent.is_navigation_finished():
+		var proxima_posicao = nav_agent.get_next_path_position()
+		var direcao = global_position.direction_to(proxima_posicao)
+		velocity = direcao * chase_speed
+		print("[DEBUG CAÇA] Velocidade calculada: ", velocity) # << ADD
+		move_and_slide()
+		_update_animation(velocity)
+	else:
+		if not vendo_player:
+			print("[Pursuer] Chegou ao destino e não encontrou ninguém. Retornando para a Patrulha.")
+			mudar_estado(Estado.PATRULHANDO)
+			velocity = Vector2.ZERO
 	
 	if not nav_agent.is_navigation_finished():
 		var proxima_posicao = nav_agent.get_next_path_position()
@@ -99,89 +126,84 @@ func _process_chase(delta):
 		move_and_slide()
 		_update_animation(velocity)
 	else:
-		# Se chegou na última posição e não vê o player, volta a patrulhar
-		if not checar_player_na_area_target():
-			estado_atual = Estado.PATRULHANDO
+		if not vendo_player:
+			print("[Pursuer] Chegou ao destino e não encontrou ninguém. Retornando para a Patrulha.")
+			mudar_estado(Estado.PATRULHANDO)
 			velocity = Vector2.ZERO
 	
-	# Condição para ATACAR: Se estiver perto o suficiente do player real
 	if is_instance_valid(player):
 		var distancia_player = global_position.distance_to(player.global_position)
-		if distancia_player < 80.0 and checar_player_na_area_target():
+		if distancia_player < 80.0 and vendo_player:
 			iniciar_ataque(player.global_position)
 
 # ----------------------------------------
 # 🦷 MECÂNICA DE AVANÇO (DASH) E STUN
 
 func iniciar_ataque(posicao_alvo: Vector2):
-	estado_atual = Estado.ATACANDO
-	# Calcula a direção fixa em 8 direções para o avanço
+	print("[Pursuer] 🦷 Alvo no alcance (", global_position.distance_to(posicao_alvo), "px). Iniciando investida!")
+	mudar_estado(Estado.ATACANDO)
 	direcao_ataque = global_position.direction_to(posicao_alvo).normalized()
 	
 	anim_sprite.play("attack")
 	_set_hitbox_enabled(true)
 	
-	# Timer de segurança: Se não bater em nada, cancela o ataque após 0.5 segundos
 	get_tree().create_timer(0.5).timeout.connect(func():
 		if estado_atual == Estado.ATACANDO:
+			print("[Pursuer] Investida falhou em atingir o alvo dentro do tempo limite.")
 			encerrar_ataque()
 	)
 
-func _process_attack_dash(delta):
+func _process_attack_dash(_delta):
 	velocity = direcao_ataque * dash_speed
-	
-	# move_and_slide() retorna true se colidir com algo
 	var colidiu = move_and_slide()
 	
-	# Se colidir com uma parede durante o avanço, fica stunado
 	if colidiu and is_on_wall():
+		print("[Pursuer] 💥 Colisão violenta contra a parede durante a investida!")
 		aplicar_stun()
 
 func aplicar_stun():
-	estado_atual = Estado.STUNADO
+	mudar_estado(Estado.STUNADO)
 	_set_hitbox_enabled(false)
-	anim_sprite.play("idle") # Coloque uma animação de tonto aqui se tiver
-	modulate = Color.YELLOW # Feedback visual de Stun
+	anim_sprite.play("idle")
+	modulate = Color.YELLOW
 	
 	await get_tree().create_timer(stun_duration).timeout
 	
+	print("[Pursuer] Efeito de tontura finalizado. Reavaliando...")
 	modulate = Color.WHITE
-	# Após o stun, tenta reavaliar se continua caçando ou volta a patrulhar
+	
 	if checar_player_na_area_target():
-		estado_atual = Estado.CACANDO
+		mudar_estado(Estado.CACANDO)
 	else:
-		estado_atual = Estado.PATRULHANDO
+		mudar_estado(Estado.PATRULHANDO)
 
 func encerrar_ataque():
 	_set_hitbox_enabled(false)
 	if estado_atual == Estado.ATACANDO:
-		estado_atual = Estado.CACANDO
+		mudar_estado(Estado.CACANDO)
 
 # ----------------------------------------
 # 🎯 DETECÇÃO & AUXILIARES
 
 func checar_player_na_area_target() -> bool:
-	# Certifique-se de criar a AreaVisao separada como conversamos,
-	# ou se mantiver na HitBox, use: var corpos = hitbox.get_overlapping_bodies()
-	var corpos = hitbox.get_overlapping_bodies()
-	for corpo in corpos:
-		if corpo.is_in_group("player"):
-			return true
+	var fov = get_node_or_null("FOV")
+	if fov:
+		var corpos = fov.get_overlapping_bodies()
+		for corpo in corpos:
+			if corpo.is_in_group("player"):
+				return true
 	return false
 
 func _on_hit_box_body_entered(body):
 	if body.is_in_group("player"):
-		print("Monstro acertou o player! Tentando causar dano no HealthComponent.")
-		
-		# Procura o HealthComponent dentro do nó do Player
+		print("[Pursuer] 💥 Ataque conectou! Aplicando dano à saúde do jogador.")
 		var player_health = body.get_node_or_null("HealthComponent")
 		
 		if player_health:
-			player_health.take_damage(1) # Aplica 1 de dano usando o seu componente!
+			player_health.take_damage(1)
 		elif body.has_method("take_damage"):
-			body.take_damage(1) # Backup caso o método esteja direto no player
+			body.take_damage(1)
 		
-		# Se acertou o player, cancela o avanço rápido (dash) e volta a caçar normal
 		if estado_atual == Estado.ATACANDO:
 			call_deferred("encerrar_ataque")
 
@@ -191,7 +213,7 @@ func _set_hitbox_enabled(enabled: bool):
 			shape.set_deferred("disabled", not enabled)
 
 # ----------------------------------------
-# 🎞️ ANIMAÇÃO 8 DIREÇÕES (BASEADO EM VETOR)
+# 🎞️ ANIMAÇÃO
 
 func _update_animation(dir: Vector2):
 	if dir.length() > 0.1:
@@ -199,11 +221,3 @@ func _update_animation(dir: Vector2):
 		anim_sprite.flip_h = dir.x < 0
 	else:
 		anim_sprite.play("idle")
-
-# ----------------------------------------
-# ❤️ VIDA E MORTE (Mantidos e adaptados do seu original)
-
-	if collision:
-		collision.set_deferred("disabled", true)
-	_set_hitbox_enabled(false)
-	

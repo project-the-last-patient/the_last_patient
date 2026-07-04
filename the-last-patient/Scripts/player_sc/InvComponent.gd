@@ -1,5 +1,5 @@
 extends Node
-class_name GlobalInventoryComponent
+
 
 signal inv_updated(categoria: String)
 

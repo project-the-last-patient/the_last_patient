@@ -136,6 +136,9 @@ size = Vector2(20, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ja1t"]
 size = Vector2(26, 13)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lha6x"]
+radius = 129.29
+
 [node name="Pursuer" type="CharacterBody2D" unique_id=1459138570 groups=["enemies"]]
 script = ExtResource("1_4okni")
 
@@ -198,4 +201,11 @@ texture = ExtResource("29_c8cy4")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=357587801]
 unique_name_in_owner = true
 
+[node name="FOV" type="Area2D" parent="." unique_id=897248866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV" unique_id=700462894]
+scale = Vector2(1.0218526, 1.0304036)
+shape = SubResource("CircleShape2D_lha6x")
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="player_avistado" from="PatrolComponent" to="." method="_on_patrol_component_player_avistado"]
