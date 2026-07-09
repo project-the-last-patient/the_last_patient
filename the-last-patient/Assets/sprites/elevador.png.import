@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b46yl05u124db"
-path="res://.godot/imported/chao 1.png-50f4c7ae5b38713622c81b985b48e427.ctex"
+uid="uid://bqnc8b6ngejwi"
+path="res://.godot/imported/elevador.png-390400cfc327aba64dcff07d37658159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chao 1.png"
-dest_files=["res://.godot/imported/chao 1.png-50f4c7ae5b38713622c81b985b48e427.ctex"]
+source_file="res://Assets/sprites/elevador.png"
+dest_files=["res://.godot/imported/elevador.png-390400cfc327aba64dcff07d37658159.ctex"]
 
 [params]
 

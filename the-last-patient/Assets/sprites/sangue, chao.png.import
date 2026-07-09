@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0lr88r38umrg"
-path="res://.godot/imported/mesa grande.png-76fcc184a770dc0a2c60ffe6e6154ddf.ctex"
+uid="uid://cy6bm6ocef8sv"
+path="res://.godot/imported/sangue, chao.png-1a4396202f272fc10650ffd6074baee9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mesa grande.png"
-dest_files=["res://.godot/imported/mesa grande.png-76fcc184a770dc0a2c60ffe6e6154ddf.ctex"]
+source_file="res://Assets/sprites/sangue, chao.png"
+dest_files=["res://.godot/imported/sangue, chao.png-1a4396202f272fc10650ffd6074baee9.ctex"]
 
 [params]
 

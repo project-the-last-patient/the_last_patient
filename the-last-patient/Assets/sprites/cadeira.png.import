@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmldfa5wk1d2g"
-path="res://.godot/imported/parede.png-a620d5222fb9bc724a668bedc5f0dac3.ctex"
+uid="uid://dmxn52qh0pdng"
+path="res://.godot/imported/cadeira.png-00cdd8ba5a668f1abffaf93e1f7a82fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parede.png"
-dest_files=["res://.godot/imported/parede.png-a620d5222fb9bc724a668bedc5f0dac3.ctex"]
+source_file="res://Assets/sprites/cadeira.png"
+dest_files=["res://.godot/imported/cadeira.png-00cdd8ba5a668f1abffaf93e1f7a82fb.ctex"]
 
 [params]
 

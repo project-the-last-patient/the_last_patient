@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy6bm6ocef8sv"
-path="res://.godot/imported/sangue, chao.png-bb0f363ce1217fa1d0c2b3300c601c9b.ctex"
+uid="uid://iagyrlx482xq"
+path="res://.godot/imported/chao 2.png-7692b239d1fbf9cffc12c664099724d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sangue, chao.png"
-dest_files=["res://.godot/imported/sangue, chao.png-bb0f363ce1217fa1d0c2b3300c601c9b.ctex"]
+source_file="res://Assets/sprites/chao 2.png"
+dest_files=["res://.godot/imported/chao 2.png-7692b239d1fbf9cffc12c664099724d6.ctex"]
 
 [params]
 

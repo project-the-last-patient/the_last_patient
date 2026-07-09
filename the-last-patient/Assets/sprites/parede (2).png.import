@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da6ls4sqh7b4l"
-path="res://.godot/imported/mesa.png-5612e7998f517c10b1546903a8f0a852.ctex"
+uid="uid://bwigse24hiqy3"
+path="res://.godot/imported/parede (2).png-a8e226b80bf39b4ef08d189209639bd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mesa.png"
-dest_files=["res://.godot/imported/mesa.png-5612e7998f517c10b1546903a8f0a852.ctex"]
+source_file="res://Assets/sprites/parede (2).png"
+dest_files=["res://.godot/imported/parede (2).png-a8e226b80bf39b4ef08d189209639bd4.ctex"]
 
 [params]
 

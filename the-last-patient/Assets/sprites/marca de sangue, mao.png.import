@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50iycqgjb0rh"
-path="res://.godot/imported/New Piskel (2).png-d79e2a0c3889e968a00a3164d3ddcac6.ctex"
+uid="uid://bfoinhfj5vdmv"
+path="res://.godot/imported/marca de sangue, mao.png-04385f858e5e0cc7d28f5afabdbe0918.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/New Piskel (2).png"
-dest_files=["res://.godot/imported/New Piskel (2).png-d79e2a0c3889e968a00a3164d3ddcac6.ctex"]
+source_file="res://Assets/sprites/marca de sangue, mao.png"
+dest_files=["res://.godot/imported/marca de sangue, mao.png-04385f858e5e0cc7d28f5afabdbe0918.ctex"]
 
 [params]
 

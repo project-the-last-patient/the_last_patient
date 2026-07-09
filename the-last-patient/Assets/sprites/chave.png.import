@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d30dwn1jmed4h"
-path="res://.godot/imported/cama.png-5aca6593fa0e2edab616ecb375fd382d.ctex"
+uid="uid://datxalpt78ija"
+path="res://.godot/imported/chave.png-b9d1ecb5b5d90262ec0bcb975fe66c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cama.png"
-dest_files=["res://.godot/imported/cama.png-5aca6593fa0e2edab616ecb375fd382d.ctex"]
+source_file="res://Assets/sprites/chave.png"
+dest_files=["res://.godot/imported/chave.png-b9d1ecb5b5d90262ec0bcb975fe66c32.ctex"]
 
 [params]
 

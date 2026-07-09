@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwigse24hiqy3"
-path="res://.godot/imported/parede (2).png-de3fad7e994b83cbec66e0282b91628f.ctex"
+uid="uid://b0bjsq3y46jhq"
+path="res://.godot/imported/cartao.png-a42b8e5b4b2f178aaec0556ed4ff4204.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parede (2).png"
-dest_files=["res://.godot/imported/parede (2).png-de3fad7e994b83cbec66e0282b91628f.ctex"]
+source_file="res://Assets/sprites/cartao.png"
+dest_files=["res://.godot/imported/cartao.png-a42b8e5b4b2f178aaec0556ed4ff4204.ctex"]
 
 [params]
 

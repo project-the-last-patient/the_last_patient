@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7jb1mw85dlfc"
-path="res://.godot/imported/cartao (1).png-869344e7eee6d890edbb46f1fc9eb94d.ctex"
+uid="uid://bjlwohhxyg8y3"
+path="res://.godot/imported/cadeira (2).png-b83edf82dcd0a4a4ab25ba3fb8144d36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cartao (1).png"
-dest_files=["res://.godot/imported/cartao (1).png-869344e7eee6d890edbb46f1fc9eb94d.ctex"]
+source_file="res://Assets/sprites/cadeira (2).png"
+dest_files=["res://.godot/imported/cadeira (2).png-b83edf82dcd0a4a4ab25ba3fb8144d36.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0bjsq3y46jhq"
-path="res://.godot/imported/cartao.png-84e8e7dad0ee9d9a41c91b7735b2831c.ctex"
+uid="uid://bsrkdly802wvu"
+path="res://.godot/imported/chao 3.png-262b448ac9adfd2cc676917ad8340342.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cartao.png"
-dest_files=["res://.godot/imported/cartao.png-84e8e7dad0ee9d9a41c91b7735b2831c.ctex"]
+source_file="res://Assets/sprites/chao 3.png"
+dest_files=["res://.godot/imported/chao 3.png-262b448ac9adfd2cc676917ad8340342.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://v0y2j8nyl35n"]
 
-[ext_resource type="Texture2D" uid="uid://bsrkdly802wvu" path="res://sprites/chao 3.png" id="1_vm3su"]
-[ext_resource type="Texture2D" uid="uid://b46yl05u124db" path="res://sprites/chao 1.png" id="2_u55js"]
-[ext_resource type="Texture2D" uid="uid://bwigse24hiqy3" path="res://sprites/parede (2).png" id="3_kbneb"]
+[ext_resource type="Texture2D" uid="uid://bsrkdly802wvu" path="res://Assets/sprites/chao 3.png" id="1_vm3su"]
+[ext_resource type="Texture2D" uid="uid://b46yl05u124db" path="res://Assets/sprites/chao 1.png" id="2_u55js"]
+[ext_resource type="Texture2D" uid="uid://bwigse24hiqy3" path="res://Assets/sprites/parede (2).png" id="3_kbneb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkfvo"]
 texture = ExtResource("1_vm3su")

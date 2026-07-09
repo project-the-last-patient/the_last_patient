@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8p0t8ipxgsch"
-path="res://.godot/imported/placa.png-556ea5c3540c08b68d089c6701b7e0bf.ctex"
+uid="uid://jovs4mf5a3ab"
+path="res://.godot/imported/fds.png-4e993c0d62c737e91ced9a8760254148.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/placa.png"
-dest_files=["res://.godot/imported/placa.png-556ea5c3540c08b68d089c6701b7e0bf.ctex"]
+source_file="res://Assets/sprites/fds.png"
+dest_files=["res://.godot/imported/fds.png-4e993c0d62c737e91ced9a8760254148.ctex"]
 
 [params]
 

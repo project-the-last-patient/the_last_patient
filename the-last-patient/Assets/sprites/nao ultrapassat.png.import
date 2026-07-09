@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jovs4mf5a3ab"
-path="res://.godot/imported/fds.png-c64dd4d7fb8679943c31bb76c5322559.ctex"
+uid="uid://c7jvhgn6cq214"
+path="res://.godot/imported/nao ultrapassat.png-553fade0588d14dce1db8e727120999a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fds.png"
-dest_files=["res://.godot/imported/fds.png-c64dd4d7fb8679943c31bb76c5322559.ctex"]
+source_file="res://Assets/sprites/nao ultrapassat.png"
+dest_files=["res://.godot/imported/nao ultrapassat.png-553fade0588d14dce1db8e727120999a.ctex"]
 
 [params]
 

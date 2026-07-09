@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfoinhfj5vdmv"
-path="res://.godot/imported/marca de sangue, mao.png-0d1d4b2d1f4deb3a572fed3aa0d4093c.ctex"
+uid="uid://b6bbaur1j2djm"
+path="res://.godot/imported/mesa maior.png-7bdd621077cacd4a02a375d42025ea63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/marca de sangue, mao.png"
-dest_files=["res://.godot/imported/marca de sangue, mao.png-0d1d4b2d1f4deb3a572fed3aa0d4093c.ctex"]
+source_file="res://Assets/sprites/mesa maior.png"
+dest_files=["res://.godot/imported/mesa maior.png-7bdd621077cacd4a02a375d42025ea63.ctex"]
 
 [params]
 

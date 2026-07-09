@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0b2n742yjxi4"
-path="res://.godot/imported/cadeira (3).png-7326256b43e857aee6626dd0bedc7657.ctex"
+uid="uid://c0lr88r38umrg"
+path="res://.godot/imported/mesa grande.png-7565631335fb5b7bd7c8f16ed9f74e01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cadeira (3).png"
-dest_files=["res://.godot/imported/cadeira (3).png-7326256b43e857aee6626dd0bedc7657.ctex"]
+source_file="res://Assets/sprites/mesa grande.png"
+dest_files=["res://.godot/imported/mesa grande.png-7565631335fb5b7bd7c8f16ed9f74e01.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var fade_out: bool = false
+@export var fade_out: bool = true
 @export var Unique: bool = false
 @export var target_door_id: String = ""
 

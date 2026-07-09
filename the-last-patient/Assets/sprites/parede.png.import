@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datxalpt78ija"
-path="res://.godot/imported/chave.png-1ced22a178a5ac2a283b3819e15ffb3b.ctex"
+uid="uid://dmldfa5wk1d2g"
+path="res://.godot/imported/parede.png-286963b86e7ba5173943c18ee82ad4b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chave.png"
-dest_files=["res://.godot/imported/chave.png-1ced22a178a5ac2a283b3819e15ffb3b.ctex"]
+source_file="res://Assets/sprites/parede.png"
+dest_files=["res://.godot/imported/parede.png-286963b86e7ba5173943c18ee82ad4b1.ctex"]
 
 [params]
 

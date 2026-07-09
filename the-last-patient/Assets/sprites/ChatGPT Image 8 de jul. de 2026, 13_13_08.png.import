@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqnc8b6ngejwi"
-path="res://.godot/imported/elevador.png-e3571b29b66a298e22f151558967609d.ctex"
+uid="uid://dcovx4fnnq8h"
+path="res://.godot/imported/ChatGPT Image 8 de jul. de 2026, 13_13_08.png-41056cbf86fef8cecaf7ca67c24c1272.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/elevador.png"
-dest_files=["res://.godot/imported/elevador.png-e3571b29b66a298e22f151558967609d.ctex"]
+source_file="res://Assets/sprites/ChatGPT Image 8 de jul. de 2026, 13_13_08.png"
+dest_files=["res://.godot/imported/ChatGPT Image 8 de jul. de 2026, 13_13_08.png-41056cbf86fef8cecaf7ca67c24c1272.ctex"]
 
 [params]
 

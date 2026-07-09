@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xc5vnh6ajtg1"
-path="res://.godot/imported/escada.png-6e5d4392ebc68518120fb26a8eaf161a.ctex"
+uid="uid://b8p0t8ipxgsch"
+path="res://.godot/imported/placa.png-89ad1b68138ddc36244a820b5ebdca26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/escada.png"
-dest_files=["res://.godot/imported/escada.png-6e5d4392ebc68518120fb26a8eaf161a.ctex"]
+source_file="res://Assets/sprites/placa.png"
+dest_files=["res://.godot/imported/placa.png-89ad1b68138ddc36244a820b5ebdca26.ctex"]
 
 [params]
 
