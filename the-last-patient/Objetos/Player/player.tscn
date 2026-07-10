@@ -5,13 +5,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
-[node name="Player" type="CharacterBody2D" unique_id=422471836]
+[node name="Player" type="CharacterBody2D" unique_id=422471836 groups=["Player"]]
 script = ExtResource("1_sqf2x")
+speed = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141545429]
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1699293716]
+unique_name_in_owner = true
 position = Vector2(1.9073486e-06, 1.9073486e-06)
 scale = Vector2(0.15625, 0.15625)
 texture = ExtResource("2_asluq")

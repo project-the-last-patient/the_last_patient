@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j653hbdaylog"]
 
-[ext_resource type="Script" path="res://Scripts/props_sc/key_sc/KeyComponent_sc.gd" id="1_eskmy"]
-[ext_resource type="Texture2D" uid="uid://6n4ag4ovw4an" path="res://icon.svg" id="2_b3810"]
+[ext_resource type="Script" uid="uid://darl4e1ucrcft" path="res://Scripts/props_sc/key_sc/KeyComponent_sc.gd" id="1_eskmy"]
+[ext_resource type="Texture2D" uid="uid://c2vetgsbbtvir" path="res://Assets/props/chave_1.png" id="2_eskmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
@@ -9,10 +9,9 @@
 script = ExtResource("1_eskmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1417964287]
-modulate = Color(1, 0.1254902, 1, 1)
-position = Vector2(0, 1.1920929e-07)
-scale = Vector2(0.11328125, 0.099609375)
-texture = ExtResource("2_b3810")
+position = Vector2(1, 2)
+scale = Vector2(0.668, 0.55)
+texture = ExtResource("2_eskmy")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1865062244]
 

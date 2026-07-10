@@ -96,7 +96,6 @@ func _checar_presenca_do_player(body: CharacterBody2D):
 	
 	if not fov:
 		# Se printar isso, significa que o script não achou o nó FOV no Pursuer
-		print("[DEBUG FOV] ERRO: Nó chamado 'FOV' não foi encontrado dentro de: ", body.name)
 		return
 		
 	var corpos_no_fov = fov.get_overlapping_bodies()
@@ -105,7 +104,6 @@ func _checar_presenca_do_player(body: CharacterBody2D):
 	if corpos_no_fov.size() > 0:
 		print("[DEBUG FOV] Lista de corpos que o FOV está tocando neste frame:")
 		for corpo in corpos_no_fov:
-			print(" -> Tocando em: ", corpo.name, " | Grupos do corpo: ", corpo.get_groups())
 			
 			if corpo.is_in_group("Player"):
 				print("[DEBUG FOV] 🔥 SUCESSO! Player detectado no grupo. Emitindo sinal 'player_avistado'.")

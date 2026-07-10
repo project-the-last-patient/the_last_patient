@@ -103,13 +103,10 @@ func _process_chase(delta):
 
 	nav_agent.target_position = ultima_posicao_player
 	
-	print("[DEBUG CAÇA] Alvo definido em: ", nav_agent.target_position, " | Caminho finalizado? ", nav_agent.is_navigation_finished()) # << ADD
-	
 	if not nav_agent.is_navigation_finished():
 		var proxima_posicao = nav_agent.get_next_path_position()
 		var direcao = global_position.direction_to(proxima_posicao)
 		velocity = direcao * chase_speed
-		print("[DEBUG CAÇA] Velocidade calculada: ", velocity) # << ADD
 		move_and_slide()
 		_update_animation(velocity)
 	else:
