@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://opn2veaser0w"]
+
+[ext_resource type="Script" path="res://Scripts/props_sc/door_sc/door_sc.gd" id="1_xxeaa"]
+[ext_resource type="Texture2D" uid="uid://6n4ag4ovw4an" path="res://icon.svg" id="2_xiwxn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4i5d"]
+radius = 9.500002
+height = 22.000006
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Door" type="Node2D" unique_id=646724743 node_paths=PackedStringArray("orientation_node")]
+script = ExtResource("1_xxeaa")
+orientation_node = NodePath("Orientation")
+
+[node name="Orientation" type="Node2D" parent="." unique_id=1024039039]
+position = Vector2(10, 10)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Orientation" unique_id=953553909]
+position = Vector2(-9.999999, -9.999999)
+scale = Vector2(0.15499999, 0.15499999)
+texture = ExtResource("2_xiwxn")
+
+[node name="Area2D" type="Area2D" parent="Orientation/Sprite2D" unique_id=1712076552]
+scale = Vector2(6.4516125, 6.4516125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orientation/Sprite2D/Area2D" unique_id=948425565]
+position = Vector2(-1.907349e-06, -1.907349e-06)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_l4i5d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Orientation/Sprite2D" unique_id=882821685]
+scale = Vector2(6.4516125, 6.4516125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orientation/Sprite2D/StaticBody2D" unique_id=1038285198]
+shape = SubResource("RectangleShape2D_g4v7s")

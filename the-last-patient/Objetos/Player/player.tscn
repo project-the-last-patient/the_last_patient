@@ -31,3 +31,21 @@ shape = SubResource("RectangleShape2D_38l55")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1904519589]
 sprite_frames = SubResource("SpriteFrames_1boxf")
+<<<<<<< Updated upstream
+=======
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1959245906]
+scale = Vector2(2.325, 2.325)
+color = Color(0.972549, 0.8, 0, 1)
+energy = 0.6
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 30.0
+texture = ExtResource("3_lwu33")
+
+[node name="HealthComponent" parent="." unique_id=1767121955 instance=ExtResource("4_fgelq")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=937539552]
+position = Vector2(0, 24)
+zoom = Vector2(1.41, 1.41)
+>>>>>>> Stashed changes

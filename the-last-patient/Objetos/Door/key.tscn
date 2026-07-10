@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://j653hbdaylog"]
+
+[ext_resource type="Script" path="res://Scripts/props_sc/key_sc/KeyComponent_sc.gd" id="1_eskmy"]
+[ext_resource type="Texture2D" uid="uid://6n4ag4ovw4an" path="res://icon.svg" id="2_b3810"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Key" type="Node2D" unique_id=240252370]
+script = ExtResource("1_eskmy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1417964287]
+modulate = Color(1, 0.1254902, 1, 1)
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.11328125, 0.099609375)
+texture = ExtResource("2_b3810")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1865062244]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=599311419]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
