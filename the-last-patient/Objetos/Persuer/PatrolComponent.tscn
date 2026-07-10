@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://canihdkwr7b4f"]
+
+[ext_resource type="Script" uid="uid://capm5p52pppa0" path="res://Scripts/enemys_sc/patrol_component_sc.gd" id="1_ovpe8"]
+
+[node name="PatrolComponent" type="Node" unique_id=2042410559]
+script = ExtResource("1_ovpe8")

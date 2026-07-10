@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://devkb8hkooqrq"]
 
-[ext_resource type="Texture2D" uid="uid://uldg2he4oiji" path="res://Assets/Map/WhatsApp Image 2026-07-03 at 5.59.38 PM.jpeg" id="1_xcqvd"]
-[ext_resource type="PackedScene" uid="uid://cdo7lrevh04e7" path="res://Objetos/Player/player.tscn" id="2_xcqvd"]
+[ext_resource type="Texture2D" path="res://Assets/Map/WhatsApp Image 2026-07-03 at 5.59.38 PM.jpeg" id="1_xcqvd"]
+[ext_resource type="PackedScene" uid="uid://cdo7lrevh04e7" path="res://Objetos/Player/Player.tscn" id="2_xcqvd"]
 [ext_resource type="PackedScene" uid="uid://opn2veaser0w" path="res://Objetos/Door/door.tscn" id="4_c6t2p"]
 [ext_resource type="PackedScene" uid="uid://dpewvcvxe8oab" path="res://Objetos/Trigger/trigger.tscn" id="5_c6t2p"]
 [ext_resource type="PackedScene" uid="uid://j653hbdaylog" path="res://Objetos/Door/key.tscn" id="5_kptnx"]

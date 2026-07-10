@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://dmphi8l6fi531"]
+
+[ext_resource type="Script" uid="uid://dkm8k0pim4t14" path="res://Scripts/enemys_sc/pursuer_enemy_sc.gd" id="1_5eaml"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque0.png" id="2_3jkxi"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque1.png" id="3_l6fnp"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque2.png" id="4_na5ei"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque3.png" id="5_3pmu7"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque4.png" id="6_mlc7g"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque5.png" id="7_l6juo"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque6.png" id="8_hy1at"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Ataque/Dog_Ataque7.png" id="9_xgty6"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog0.png" id="10_abtcn"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog1.png" id="11_kx545"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog2.png" id="12_2oc3k"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog3.png" id="13_fo2fn"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog4.png" id="14_qstio"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog5.png" id="15_4mk50"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog6.png" id="16_cogru"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog7.png" id="17_mnntr"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog8.png" id="18_28ae2"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog9.png" id="19_7l8tt"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Idle/Idle_Dog10.png" id="20_46sgj"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog0.png" id="21_c03go"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog1.png" id="22_jsobc"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog2.png" id="23_8iykq"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog3.png" id="24_lqolt"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog4.png" id="25_kn1rb"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog5.png" id="26_av30m"]
+[ext_resource type="Texture2D" path="res://Assets/Inimigos/Dog/Patrulha/Patrulha_Dog6.png" id="27_obwva"]
+[ext_resource type="Texture2D" path="res://Assets/lights/light.jpg" id="28_nmx5f"]
+[ext_resource type="PackedScene" uid="uid://canihdkwr7b4f" path="res://Objetos/Persuer/PatrolComponent.tscn" id="29_fwp5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2h5j"]
+size = Vector2(25, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqq82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3jkxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l6fnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_na5ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3pmu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mlc7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l6juo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hy1at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xgty6")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_abtcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kx545")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2oc3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fo2fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qstio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4mk50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cogru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mnntr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_28ae2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7l8tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_46sgj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_c03go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jsobc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8iykq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_lqolt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_kn1rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_av30m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_obwva")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1pav"]
+size = Vector2(20, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ja1t"]
+size = Vector2(26, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lha6x"]
+radius = 129.29
+
+[node name="Pursuer" type="CharacterBody2D" unique_id=1459138570 groups=["enemies"]]
+script = ExtResource("1_5eaml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2112139724]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_j2h5j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1510693069]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_gqq82")
+animation = &"run"
+frame_progress = 0.35804364
+
+[node name="DangerDetectorLeft" type="RayCast2D" parent="." unique_id=1178509042]
+unique_name_in_owner = true
+position = Vector2(-24, -7)
+target_position = Vector2(0, 15)
+
+[node name="DangerDetectorRight" type="RayCast2D" parent="." unique_id=877305182]
+unique_name_in_owner = true
+position = Vector2(21, -7)
+target_position = Vector2(0, 15)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=878568083]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=196314900]
+unique_name_in_owner = true
+position = Vector2(23, -4)
+shape = SubResource("RectangleShape2D_s1pav")
+disabled = true
+debug_color = Color(0.94133806, 0.19948572, 0.3632983, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox" unique_id=1176550675]
+position = Vector2(-23, -3)
+shape = SubResource("RectangleShape2D_s1pav")
+disabled = true
+debug_color = Color(0.94133806, 0.19948572, 0.3632983, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitBox" unique_id=744057763]
+position = Vector2(-1, -13.5)
+shape = SubResource("RectangleShape2D_1ja1t")
+disabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1274580430]
+color = Color(0.63529414, 0.30980393, 1, 1)
+energy = 1.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 30.0
+texture = ExtResource("28_nmx5f")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=357587801]
+unique_name_in_owner = true
+
+[node name="FOV" type="Area2D" parent="." unique_id=897248866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV" unique_id=700462894]
+scale = Vector2(1.0218526, 1.0304036)
+shape = SubResource("CircleShape2D_lha6x")
+
+[node name="PatrolComponent" parent="." unique_id=2042410559 instance=ExtResource("29_fwp5p")]
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
