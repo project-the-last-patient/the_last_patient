@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://opn2veaser0w"]
 
-[ext_resource type="Script" path="res://Scripts/props_sc/door_sc/door_sc.gd" id="1_xxeaa"]
+[ext_resource type="Script" uid="uid://2jejmjp62gvd" path="res://Scripts/props_sc/door_sc/door_sc.gd" id="1_xxeaa"]
 [ext_resource type="Texture2D" uid="uid://6n4ag4ovw4an" path="res://icon.svg" id="2_xiwxn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4i5d"]
@@ -9,7 +9,7 @@ height = 22.000006
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
-[node name="Door" type="Node2D" unique_id=646724743 node_paths=PackedStringArray("orientation_node")]
+[node name="Door" type="Node2D" unique_id=646724743 node_paths=PackedStringArray("orientation_node") groups=["Doors"]]
 script = ExtResource("1_xxeaa")
 orientation_node = NodePath("Orientation")
 

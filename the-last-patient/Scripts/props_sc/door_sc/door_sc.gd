@@ -10,7 +10,7 @@ signal next_level_reached
 @export_group("Configurações Básicas")
 @export var action_button: String = "action_button"
 @export var rotation_speed: float = 5.0
-@export var orientation_node: Node2D = null # Arraste o seu nó 'Orientation' / 'EixoDobradica' aqui!
+@export var orientation_node: Node2D = null 
 
 @export_group("Gatilhos")
 @export var is_triggered: bool = false
@@ -35,17 +35,14 @@ var target_rotation: float = 0.0
 var player_in_range: Node2D = null
 
 func _ready() -> void:
-	# Se você esqueceu de arrastar o nó no Inspector, ele tenta achar pelo nome padrão
 	if not orientation_node:
 		orientation_node = get_node_or_null("Orientation") as Node2D
 	
-	# Agora definimos a rotação inicial baseada no nó de orientação, não na raiz!
 	if orientation_node:
 		target_rotation = orientation_node.rotation
 	else:
-		push_error("Erro: O script precisa de um nó Node2D de Orientação/Dobradiça para girar corretamente.")
+		push_error("Erro: O script precisa de um nó Node2D de Orientação/Dobradiça.")
 
-	# Conecta a Area2D automaticamente
 	var area = get_node_or_null("Orientation/Sprite2D/Area2D")
 	if area:
 		area.body_entered.connect(_on_area_2d_body_entered)
@@ -57,36 +54,69 @@ func _ready() -> void:
 	elif need_key and not key_item:
 		EventBusSc.door_unlocked.connect(_on_global_door_unlocked)
 
-
 func _process(delta: float) -> void:
-	# Rotaciona apenas o nó de orientação/dobradiça de forma suave
 	if orientation_node:
 		orientation_node.rotation = rotate_toward(orientation_node.rotation, target_rotation, rotation_speed * delta)
 
-# --- DETECÇÃO DO BOTÃO DE AÇÃO ---
+# --- DETECÇÃO DO BOTÃO DE AÇÃO (APENAS PLAYER) ---
 func _unhandled_input(event: InputEvent) -> void:
 	if player_in_range and event.is_action_pressed(action_button):
 		interact(player_in_range)
 
-# --- FUNÇÃO PRINCIPAL DE INTERAÇÃO ---
+# --- FUNÇÃO PRINCIPAL DE INTERAÇÃO DO PLAYER ---
 func interact(player: Node2D) -> void:
-	# CORREÇÃO 1: A chave AGORA é a prioridade máxima!
-	# Se precisar de chave e ainda estiver trancada, bloqueia QUALQUER outra ação (TP, abrir, etc)
 	if need_key:
-		print("A porta está trancada. Encontre a chave ou ative o gatilho primeiro!")
+		print("A porta está trancada.")
 		return 
 
-	# Se passou pela chave (ou não precisa), o resto funciona:
 	if next_level_door:
 		next_level_reached.emit()
 		return
 
 	if need_tp:
-		teleport_player(player)
+		teleport_entity(player)
 		return
 
-	# Comportamento padrão de abrir/fechar se não for TP ou Mudança de Fase
 	toggle_door()
+
+# --- NOVA FUNÇÃO: INTERAÇÃO DO MONSTRO ---
+# --- FUNÇÃO DE INTERAÇÃO DO MONSTRO ATUALIZADA ---
+func monster_interact(monster: CharacterBody2D) -> void:
+	# 1. Se precisar de chave, o monstro é completamente bloqueado
+	if need_key:
+		print("[Porta] ", name, " está trancada. O monstro não consegue interagir.")
+		return
+
+	# 2. Se for uma porta de mudança de fase, o monstro ignora
+	if next_level_door:
+		return
+
+	# 3. Se a porta tiver Teletransporte, teletransporta o monstro direto
+	if need_tp:
+		teleport_entity(monster)
+		return
+
+	# 4. COMPORTAMENTO DE ABRIR/FECHAR LIVREMENTE:
+	# Para evitar que o monstro fique abrindo e fechando a porta no mesmo frame 
+	# devido ao process_patrol rodar muito rápido, criamos uma pequena trava de tempo de 1.5 segundos
+	if not has_meta("monster_cooldown"):
+		set_meta("monster_cooldown", false)
+		
+	if get_meta("monster_cooldown") == true:
+		return # Se estiver no cooldown, ignora o comando por enquanto
+
+	# Inverte o estado da porta (Abre se fechada, Fecha se aberta)
+	toggle_door()
+	
+	if is_open:
+		print("[Porta] Monstro ABRU a porta: ", name)
+	else:
+		print("[Porta] Monstro FECHOU a porta: ", name)
+
+	# Ativa o cooldown para o monstro não "espamar" a porta
+	set_meta("monster_cooldown", true)
+	await get_tree().create_timer(1.5).timeout
+	set_meta("monster_cooldown", false)
 
 # --- LÓGICA DE ABERTURA E FECHAMENTO ---
 func toggle_door() -> void:
@@ -101,18 +131,24 @@ func toggle_door() -> void:
 		is_open = false
 		door_closed.emit()
 
-# --- LÓGICA DE TELETRANSPORTE ---
-func teleport_player(player: Node2D) -> void:
+# --- LÓGICA DE TELETRANSPORTE (MODIFICADA PARA 'ENTITY' PLAYER OU MONSTRO) ---
+func teleport_entity(entity: Node2D) -> void:
 	if destination_scene:
+		# Se mudar de cena por PackedScene, o monstro some junto com o mapa antigo
 		get_tree().change_scene_to_packed(destination_scene)
 	else:
-		player.global_position = tp_position
-		player.global_rotation = deg_to_rad(tp_rotation)
+		# Teleporta o Player ou o Monstro dentro do mesmo mapa
+		entity.global_position = tp_position
+		entity.global_rotation = deg_to_rad(tp_rotation)
 		door_opened.emit()
 
 func _on_key_unlocked() -> void:
 	need_key = false
-	print("Porta destrancada! Agora você pode interagir com ela.")
+
+func _on_global_door_unlocked(unlocked_door_id: String) -> void:
+	if door_id == "": return
+	if unlocked_door_id == door_id:
+		need_key = false
 
 # --- SINAIS DA AREA2D ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -122,16 +158,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player_in_range:
 		player_in_range = null
-		
-func _on_global_door_unlocked(unlocked_door_id: String) -> void:
-	# 1. Se o ID da porta estiver vazio no Inspector, avisa o desenvolvedor e não faz nada
-	if door_id == "":
-		push_warning("Aviso: Esta porta precisa de chave, mas você esqueceu de digitar um 'door_id' no Inspector!")
-		return
-
-	# 2. Só destranca se o ID transmitido for exatamente igual ao ID desta porta
-	if unlocked_door_id == door_id:
-		need_key = false
-		print("A porta [", door_id, "] foi destrancada globalmente!")
-	else:
-		print("Sinal recebido para a porta '", unlocked_door_id, "', mas o ID desta porta é '", door_id, "'. Ignorando.")

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b60uqybtl08dn"]
 
-[ext_resource type="PackedScene" uid="uid://cdo7lrevh04e7" path="res://Objetos/Player/Player.tscn" id="1_dg73y"]
+[ext_resource type="PackedScene" uid="uid://dasdst003nicd" path="res://Objetos/Player/Player.tscn" id="1_dg73y"]
 [ext_resource type="Texture2D" uid="uid://b1yopvj73xa4o" path="res://Assets/Fonte/WhatsApp Image 2026-07-09 at 10.03.27 PM.jpeg" id="1_jxyta"]
 [ext_resource type="PackedScene" uid="uid://opn2veaser0w" path="res://Objetos/Door/door.tscn" id="3_ikcic"]
 [ext_resource type="PackedScene" uid="uid://j653hbdaylog" path="res://Objetos/Door/key.tscn" id="4_fhbyd"]
@@ -6238,46 +6238,19 @@ tile_set = SubResource("TileSet_g4v7s")
 [node name="Player" parent="." unique_id=422471836 instance=ExtResource("1_dg73y")]
 position = Vector2(253, 168)
 
-[node name="Door" parent="." unique_id=646724743 groups=["Door"] instance=ExtResource("3_ikcic")]
-position = Vector2(556, 156)
-need_key = true
-need_tp = true
-tp_position = Vector2(253, 168)
-
-[node name="Door2" parent="." unique_id=636887882 node_paths=PackedStringArray("key_item") groups=["Door"] instance=ExtResource("3_ikcic")]
-position = Vector2(680, 152)
-need_key = true
-key_item = NodePath("../Key2")
-
-[node name="Door3" parent="." unique_id=19470787 groups=["Door"] instance=ExtResource("3_ikcic")]
-position = Vector2(813, 152)
-need_key = true
-door_id = "1"
-
-[node name="Key" parent="." unique_id=240252370 instance=ExtResource("4_fhbyd")]
-position = Vector2(819, 219)
-Unique = true
-target_door_id = "1"
-
-[node name="Key2" parent="." unique_id=1908245139 instance=ExtResource("4_fhbyd")]
-position = Vector2(681, 211)
-Unique = true
-
 [node name="Pursuer" parent="." unique_id=1459138570 instance=ExtResource("5_y2kat")]
-position = Vector2(388, 190)
+position = Vector2(603, 128)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=726459392]
 navigation_polygon = SubResource("NavigationPolygon_g4v7s")
 
-[node name="Door4" parent="." unique_id=966497740 groups=["Door"] instance=ExtResource("3_ikcic")]
-position = Vector2(936, 153)
+[node name="Door" parent="." unique_id=646724743 node_paths=PackedStringArray("key_item") instance=ExtResource("3_ikcic")]
+position = Vector2(365, 88)
 need_key = true
-door_id = "2"
+key_item = NodePath("../Key")
 
-[node name="Key3" parent="." unique_id=1806520827 instance=ExtResource("4_fhbyd")]
-position = Vector2(947, 219)
-target_door_id = "2"
+[node name="Door2" parent="." unique_id=50881206 instance=ExtResource("3_ikcic")]
+position = Vector2(302, 91)
 
-[node name="Key4" parent="." unique_id=1756846761 instance=ExtResource("4_fhbyd")]
-position = Vector2(589, 285)
-Unique = true
+[node name="Key" parent="." unique_id=240252370 instance=ExtResource("4_fhbyd")]
+position = Vector2(370, 139)
